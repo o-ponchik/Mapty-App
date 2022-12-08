@@ -30,7 +30,6 @@ body {
 
   background-color: #fff;
   padding: 2.5rem;
-
   display: flex;
 }
 
@@ -53,6 +52,40 @@ a:visited {
   height: 5.2rem;
   align-self: center;
   margin-bottom: 4rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 2rem;
+}
+
+.buttons.hidden {
+  transform: translateY(-30rem);
+  opacity: 0;
+}
+
+.buttons .btn {
+  background-color: var(--color-dark--2);
+  color: var(--color-light--2);
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.btn--sort:hover,
+.btn--delete:hover {
+  background-color: rgba(170, 170, 170, 0.324);
+}
+
+.btn--sort:active,
+.btn--delete:active {
+  background-color: var(--color-dark--2);
+  color: var(--color-light--1);
 }
 
 .workouts {
@@ -111,6 +144,26 @@ a:visited {
   color: var(--color-light--1);
   text-transform: uppercase;
   font-weight: 800;
+}
+
+.workout__editing {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25rem;
+}
+
+.workout__editing button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.workout__delete {
+  color: red;
+}
+
+.workout__edit {
+  color: var(--color-light--2);
 }
 
 .form {
@@ -198,6 +251,24 @@ a:visited {
   flex: 1;
   height: 100%;
   background-color: var(--color-light--1);
+}
+
+/* MODAL WINDOW */
+.modal {
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1000;
 }
 
 /* Popup width is defined in JS using options */

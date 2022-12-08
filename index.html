@@ -33,6 +33,11 @@
     <div class="sidebar">
       <img src="logo.png" alt="Logo" class="logo" />
 
+      <div class="buttons hidden">
+        <button class="btn btn--sort">Sort</button>
+        <button class="btn btn--delete">Delete All</button>
+      </div>
+
       <ul class="workouts">
         <form class="form hidden">
           <div class="form__row">
@@ -144,5 +149,18 @@
     </div>
 
     <div id="map"></div>
+
+    <div class="modal">
+      <div class="modal__window">
+        <div class="modal__text">
+          <h2>Are you sure you want to delete all workouts?😮</h2>
+          <p>If you delete all workouts, data can not be returned.</p>
+        </div>
+        <div class="modal__buttons">
+          <button class="btn btn--no">No</button>
+          <button class="btn btn--yes">Yes, Delete All!</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
