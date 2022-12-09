@@ -10,6 +10,11 @@ const inputElevation = document.querySelector(".form__input--elevation");
 const buttonsContainer = document.querySelector(".buttons");
 const sortBtn = document.querySelector(".btn--sort");
 const deleteAllBtn = document.querySelector(".btn--delete");
+const modalWindow = document.querySelector(".modal");
+const closeModal = document.querySelector(".modal__close");
+const modalBtnNo = document.querySelector(".btn--no");
+const modalBtnDeleteAll = document.querySelector(".btn--yes");
+const heading = document.querySelector(".heading");
 
 class Workout {
   date = new Date();
@@ -90,7 +95,10 @@ class App {
     form.addEventListener("submit", this._newWorkout.bind(this));
     inputType.addEventListener("change", this._toggleElevationField);
     containerWorkouts.addEventListener("click", this._moveToPopup.bind(this));
-    deleteAllBtn.addEventListener("click", this.reset);
+    deleteAllBtn.addEventListener("click", this._openModal);
+    modalBtnNo.addEventListener("click", this._hideModal);
+    closeModal.addEventListener("click", this._hideModal);
+    modalBtnDeleteAll.addEventListener("click", this.reset);
   }
 
   _getPosition() {
@@ -127,6 +135,7 @@ class App {
   _showForm(mapE) {
     this.#mapEvent = mapE;
     form.classList.remove("hidden");
+    heading.style.display = "none";
     inputDistance.focus();
   }
 
@@ -312,9 +321,23 @@ class App {
     });
   }
 
+  _openModal() {
+    modalWindow.style.opacity = 1;
+    modalWindow.style.visibility = "visible";
+  }
+
+  _hideModal() {
+    modalWindow.style.opacity = 0;
+    modalWindow.style.visibility = "hidden";
+  }
+
   reset() {
     localStorage.removeItem("workouts");
     location.reload();
+
+    this._hideModal();
+
+    heading.style.display = "inline";
   }
 
   _deleteWorkout(e) {

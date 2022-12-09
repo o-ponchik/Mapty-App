@@ -54,6 +54,13 @@ a:visited {
   margin-bottom: 4rem;
 }
 
+.heading {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 300;
+  color: var(--color-light--1);
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -262,13 +269,105 @@ a:visited {
   height: 100vh;
   justify-content: center;
   align-items: center;
+
   visibility: hidden;
+  opacity: 0;
 
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 1000;
+
+  transition: all 300ms ease-in-out;
+}
+
+.modal__content {
+  position: relative;
+  background-color: var(--color-light--2);
+  color: var(--color-dark--1);
+  width: 40vw;
+  text-align: center;
+  padding: 5rem;
+  border-radius: 5px;
+  box-shadow: rgb(50 50 52 / 66%) 4px 15px 31px 1px;
+}
+
+.modal__text {
+  margin-bottom: 3rem;
+}
+
+.modal__text h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal__text p {
+  font-size: 1.6rem;
+}
+
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: var(--color-dark--2);
+  clip-path: polygon(
+    0 10%,
+    10% 0,
+    50% 40%,
+    89% 0,
+    100% 10%,
+    60% 50%,
+    100% 90%,
+    90% 100%,
+    50% 60%,
+    10% 100%,
+    0 89%,
+    40% 50%
+  );
+}
+
+.modal__buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.modal__buttons .btn {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  color: var(--color-dark--1);
+}
+
+.btn--no {
+  background-color: #00c46a;
+}
+
+.btn--no:hover {
+  background-color: #00c469b8;
+}
+
+.btn--no:active {
+  background-color: #02ab5c;
+}
+
+.btn--yes {
+  background-color: rgb(253, 81, 81);
+}
+
+.btn--yes:hover {
+  background-color: rgba(253, 81, 81, 0.735);
+}
+
+.btn--yes:active {
+  background-color: rgba(208, 47, 47, 0.833);
 }
 
 /* Popup width is defined in JS using options */
