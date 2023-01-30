@@ -234,14 +234,15 @@ class App {
       lng = this.#mapEvent.latlng.lng;
     }
 
-    let foundWorkout = localStoredWorkouts.find(
-      (workout) => workout.id === this.#workoutId
-    );
     if (!isNewWorkout) {
       let { foundLat, foundLng } = foundWorkout.coords;
       lat = foundLat;
       lng = foundLng;
     }
+
+    let foundWorkout = localStoredWorkouts.find(
+      (workout) => workout.id === this.#workoutId
+    );
 
     // const { lat, lng } = this.#mapEvent.latlng;
     let workout;
